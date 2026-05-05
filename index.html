@@ -312,7 +312,7 @@ function addMessage(role, html) {
   avatar.textContent = role === 'assistant' ? '⚒' : 'TÚ';
   const bubble = document.createElement('div');
   bubble.className = 'bubble';
-  bubble.innerHTML = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  bubble.innerHTML = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/^## (.*?)$/gm, '<strong>$1</strong>').replace(/^- /gm, '• ');
   div.appendChild(avatar);
   div.appendChild(bubble);
   messagesEl.appendChild(div);
